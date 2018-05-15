@@ -1,0 +1,22 @@
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\bin\Debug\FigurePainter WPF.exe.config
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\bin\Debug\FigurePainter WPF.exe
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\bin\Debug\FigurePainter WPF.pdb
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\bin\Debug\MaterialDesignColors.dll
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\bin\Debug\MaterialDesignColors.pdb
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\obj\Debug\FigurePainter WPF.csprojAssemblyReference.cache
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\obj\Debug\MainWindow.g.cs
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\obj\Debug\App.g.cs
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\obj\Debug\FigurePainter WPF_MarkupCompile.cache
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\obj\Debug\FigurePainter WPF_MarkupCompile.lref
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\obj\Debug\App.baml
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\obj\Debug\MainWindow.baml
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\obj\Debug\FigurePainter WPF.g.resources
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\obj\Debug\FigurePainter_WPF.Properties.Resources.resources
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\obj\Debug\FigurePainter WPF.csproj.GenerateResource.cache
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\obj\Debug\FigurePainter WPF.csproj.CoreCompileInputs.cache
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\obj\Debug\FigurePainter WPF.csproj.CopyComplete
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\obj\Debug\FigurePainter WPF.exe
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\obj\Debug\FigurePainter WPF.pdb

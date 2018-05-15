@@ -1,0 +1,47 @@
+﻿<Window x:Class="FigurePainter_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FigurePainter_WPF"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="MainWindow" Height="600" Width="900" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <materialDesign:Card Padding="32" Margin="16" Grid.Row="0">
+            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">My First Material Design App</TextBlock>
+        </materialDesign:Card>
+
+
+
+        <Canvas Grid.Row="1" x:Name="PaintWindow" MouseLeftButtonDown="PaintWindow_OnMouseLeftButtonDown">
+            <Ellipse 
+                x:Name="Ellipse"
+                MouseEnter="UIElement_OnMouseEnter"
+                MouseLeave="Ellipse_OnMouseLeave"
+                MouseLeftButtonDown="Ellipse_OnMouseLeftButtonDown"
+                Fill="LightBlue" 
+                Width="100" 
+                Height="100"
+                Stroke="Black"
+                Canvas.Top="100"
+                Canvas.Left="100"
+            />
+            <Line Stroke="Aqua" X1="150" Y1="1" X2="150" Y2="150"></Line>
+        </Canvas>
+            
+        
+    </Grid>
+</Window>
