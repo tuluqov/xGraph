@@ -42,7 +42,8 @@
   <ItemGroup>
     <Compile Include="Edges\Edge.cs" />
     <Compile Include="Element.cs" />
-    <Compile Include="Graph.cs" />
+    <Compile Include="GraphContent\Graph.cs" />
+    <Compile Include="GraphContent\GraphManager.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vertexes\Vertex.cs" />
