@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BitArray.cs" />
     <Compile Include="Edges\Edge.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="GraphContent\Graph.cs" />

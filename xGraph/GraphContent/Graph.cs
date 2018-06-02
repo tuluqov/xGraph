@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using xGraph.Vertexes;
 using xGraph.Edges;
 
@@ -10,6 +11,11 @@ namespace xGraph.GraphContent
         public List<Vertex> Vertices { get; }
         public List<Edge> Edges { get; }
 
+        public List<Element> Elements { get; private set; }
+
+        public BitMatrix AdjacencyMatrix { get; set; }
+
+        //constructots
         public Graph()
         { }
 
@@ -17,6 +23,22 @@ namespace xGraph.GraphContent
         {
             Vertices = vertices;
             Edges = edges;
+        }
+
+        public Graph(List<Element> elements)
+        {
+            Elements = elements;
+        }
+
+        //methods
+        public void Add(Element element)
+        {
+            //Elements?.Add(element);
+
+            if (element != null)
+            {
+                Elements.Add(element);
+            }
         }
 
         public void Add(Vertex element)
@@ -34,7 +56,5 @@ namespace xGraph.GraphContent
             edge.Point1 = vertex1.Point;
             edge.Point2 = vertex2.Point;
         }
-
-        
     }
 }

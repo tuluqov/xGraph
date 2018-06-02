@@ -7,6 +7,15 @@ namespace xGraph.Vertexes
         public byte Id { get; set; }
         public Point Point { get; set; }
 
+
+        protected Vertex(byte id, Point point)
+        {
+            Id = id;
+            Point = point;
+        }
+
+        #region Operators
+
         public static bool operator ==(Vertex vertex1, Vertex vertex2)
         {
             return (vertex1.Id == vertex2.Id
@@ -18,5 +27,8 @@ namespace xGraph.Vertexes
         {
             return !(vertex1 == vertex2);
         }
+
+        #endregion
+        
     }
 }
