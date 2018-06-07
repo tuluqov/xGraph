@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Windows.Shapes;
 
 namespace xGraph
 {
-    public abstract class Element
+    public abstract class Element : IElement
     {
-        public abstract void Paint();
+        public abstract Shape GetDrawingObject();
     }
 }

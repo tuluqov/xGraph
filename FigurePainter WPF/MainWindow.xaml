@@ -9,39 +9,180 @@
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
-        TextOptions.TextFormattingMode="Ideal" 
-        TextOptions.TextRenderingMode="Auto"        
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="MainWindow" Height="600" Width="900" WindowStartupLocation="CenterScreen">
+        Title="xGraph" Height="600" Width="900" WindowStartupLocation="CenterScreen" MinWidth="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="2*"/>
-        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
 
-        <materialDesign:Card Padding="32" Margin="16" Grid.Row="0">
-            <TextBlock Style="{DynamicResource MaterialDesignTitleTextBlock}">My First Material Design App</TextBlock>
-        </materialDesign:Card>
+        <!--Боковая панель-->
+        <Grid Column="0" MinWidth="150" MaxWidth="200">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="60*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" 
+                           FontSize="15"
+                           TextAlignment="Center"
+                           VerticalAlignment="Center"
+                           Margin="5"
+                           Style="{DynamicResource MaterialDesignTitleTextBlock}"
+                           >
+                    Добавление вершины
+                </TextBlock>
+
+                <TextBlock Grid.Row="1"
+                           FontSize="15"
+                           HorizontalAlignment="Center"
+                           >Тип вершины:</TextBlock>
+
+                <ComboBox Grid.Row="1"
+                          Margin="5"
+                          materialDesign:ComboBoxAssist.ShowSelectedItem="True"
+                          VerticalAlignment="Center"
+                          FontSize="15"
+                          x:Name="AddVertexType"
+                          >
+                    <TextBlock>Круг</TextBlock>
+                    <TextBlock>Квадрат</TextBlock>
+                    <TextBlock>Треугольник</TextBlock>
+                </ComboBox>
+
+                <Button Grid.Row="3"
+                        Margin="10"
+                        FontSize="13"
+                        x:Name="AddVertexButton"
+                    >Добавить вершину</Button>
+            </Grid>
+
+            <Grid Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock
+                    Grid.Row="0"
+                    FontSize="15"
+                    TextAlignment="Center"
+                    VerticalAlignment="Center"
+                    Margin="5"
+                    Style="{DynamicResource MaterialDesignTitleTextBlock}"
+                    >
+                    Добавление ребра
+                </TextBlock>
+
+                <TextBlock Grid.Row="1"
+                           FontSize="15"
+                           HorizontalAlignment="Center"
+                >Вершина №1:</TextBlock>
+
+                <ComboBox Grid.Row="1"
+                          x:Name="FirstVertex"
+                          Margin="5"
+                          materialDesign:ComboBoxAssist.ShowSelectedItem="True"
+                          VerticalAlignment="Center"
+                          FontSize="15"
+                >
+                    <TextBlock>Круг</TextBlock>
+                    <TextBlock>Квадрат</TextBlock>
+                    <TextBlock>Треугольник</TextBlock>
+                </ComboBox>
+
+                <TextBlock Grid.Row="2"
+                           FontSize="15"
+                           HorizontalAlignment="Center"
+                >Вершина №2:</TextBlock>
+
+                <ComboBox Grid.Row="2"
+                          x:Name="SecondVertex"
+                          Margin="5"
+                          materialDesign:ComboBoxAssist.ShowSelectedItem="True"
+                          VerticalAlignment="Center"
+                          FontSize="15"
+                >
+                    <TextBlock>Круг</TextBlock>
+                    <TextBlock>Квадрат</TextBlock>
+                    <TextBlock>Треугольник</TextBlock>
+                </ComboBox>
+
+                <TextBlock Grid.Row="3"
+                           FontSize="15"
+                           HorizontalAlignment="Center"
+                >Тип ребра:</TextBlock>
+
+                <ComboBox Grid.Row="3"
+                          x:Name="AddEdgeType"
+                          Margin="5"
+                          materialDesign:ComboBoxAssist.ShowSelectedItem="True"
+                          VerticalAlignment="Center"
+                          FontSize="15"
+                >
+                    <TextBlock>Прямая линиа</TextBlock>
+                    <TextBlock>Волнистая</TextBlock>
+                    <TextBlock>Кривая</TextBlock>
+                </ComboBox>
+
+                <Button Grid.Row="4"
+                        Margin="10"
+                        FontSize="13"
+                        x:Name="AddEdgeButton"
+                >Добавить ребро</Button>
+            </Grid>
+        </Grid>
 
 
 
-        <Canvas Grid.Row="1" x:Name="PaintWindow" MouseLeftButtonDown="PaintWindow_OnMouseLeftButtonDown">
-            <Ellipse 
-                x:Name="Ellipse"
-                MouseEnter="UIElement_OnMouseEnter"
-                MouseLeave="Ellipse_OnMouseLeave"
-                MouseLeftButtonDown="Ellipse_OnMouseLeftButtonDown"
-                Fill="LightBlue" 
-                Width="100" 
-                Height="100"
-                Stroke="Black"
-                Canvas.Top="100"
-                Canvas.Left="100"
-            />
-            <Line Stroke="Aqua" X1="150" Y1="1" X2="150" Y2="150"></Line>
-        </Canvas>
-            
-        
+        <!--Панель изображения-->
+        <Grid Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Row="0">
+                <materialDesign:Card Padding="35" Margin="5" >
+                    <TextBlock HorizontalAlignment="Center" Style="{DynamicResource MaterialDesignTitleTextBlock}">Построение графов</TextBlock>
+                </materialDesign:Card>
+            </Grid>
+
+            <Grid Row="1">
+                <Canvas x:Name="PaintWindow" 
+                        MouseLeftButtonDown="PaintWindow_OnMouseLeftButtonDown"
+                        Background="Transparent"
+                        >
+                    <!--<Ellipse 
+                        x:Name="Ellipse"
+                        MouseEnter="UIElement_OnMouseEnter"
+                        MouseLeave="Ellipse_OnMouseLeave"
+                        Fill="LightBlue" 
+                        Width="50" 
+                        Height="50"
+                        Stroke="Black"
+                        Canvas.Top="100"
+                        Canvas.Left="100"
+                    />-->
+                    <!--<Line Stroke="Aqua" X1="150" Y1="1" X2="150" Y2="150"></Line>-->
+                </Canvas>
+            </Grid>
+        </Grid>
+
     </Grid>
 </Window>

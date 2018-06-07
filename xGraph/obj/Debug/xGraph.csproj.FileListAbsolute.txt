@@ -1,0 +1,6 @@
+C:\Users\vashi\source\repos\xGraph\xGraph\obj\Debug\xGraph.csprojAssemblyReference.cache
+C:\Users\vashi\source\repos\xGraph\xGraph\obj\Debug\xGraph.csproj.CoreCompileInputs.cache
+C:\Users\vashi\source\repos\xGraph\xGraph\bin\Debug\xGraph.dll
+C:\Users\vashi\source\repos\xGraph\xGraph\bin\Debug\xGraph.pdb
+C:\Users\vashi\source\repos\xGraph\xGraph\obj\Debug\xGraph.dll
+C:\Users\vashi\source\repos\xGraph\xGraph\obj\Debug\xGraph.pdb

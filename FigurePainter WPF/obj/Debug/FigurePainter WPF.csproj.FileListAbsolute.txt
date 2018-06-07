@@ -20,3 +20,5 @@ C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\obj\Debug\FigurePainter WPF
 C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\obj\Debug\FigurePainter WPF.csproj.CopyComplete
 C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\obj\Debug\FigurePainter WPF.exe
 C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\obj\Debug\FigurePainter WPF.pdb
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\bin\Debug\xGraph.dll
+C:\Users\vashi\source\repos\xGraph\FigurePainter WPF\bin\Debug\xGraph.pdb

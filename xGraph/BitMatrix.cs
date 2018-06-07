@@ -1,23 +1,19 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace xGraph
 {
-    class BitMatrix
+    public class BitMatrix
     {
-        private BitArray[] data;
+        private List<BitArray> data;
         private int Dim;
 
-        public BitMatrix(int n)
+        public BitMatrix()
         {
-            data = new BitArray[n];
-
-            for (int i = 0; i < data.Length; i++)
-            {
-                data[i] = new BitArray(n);
-            }
-
-            Dim = n;
+            data = new List<BitArray>();
+            
+            Dim = 0;
         }
 
         public bool GetValue(int row, int colmn)
@@ -32,14 +28,14 @@ namespace xGraph
 
         public int GetNumVertex()
         {
-            return data.Length;
+            return data.Count;
         }
 
         public override string ToString()
         {
             string s = "";
 
-            for (int i = 0; i < data.Length; i++)
+            for (int i = 0; i < data.Count; i++)
             {
                 for (int j = 0; j < data[i].Length; j++)
                 {
@@ -62,14 +58,14 @@ namespace xGraph
         //добавление вершины в матрицу
         public void AddVertex()
         {
-            Array.Resize(ref data, data.Length + 1);
+            Dim++;
 
-            for (int i = 0; i < data.Length; i++)
+            data.Add(new BitArray(Dim));
+            
+            for (int i = 0; i < data.Count; i++)
             {
                 data[i].Length++;
             }
-
-            Dim++;
         }
 
         //добавление ребра (связи между двуямя вершинами)
