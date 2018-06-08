@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using xGraph;
+using xGraph.Edges;
 using xGraph.GraphContent;
 using xGraph.Vertexes;
 using Point = xGraph.Point;
@@ -27,39 +25,9 @@ namespace FigurePainter_WPF
             Graph = new Graph();
         }
 
-        //private void UIElement_OnMouseEnter(object sender, MouseEventArgs e)
-        //{
-        //    Ellipse.Fill = Brushes.Brown;
-        //}
-
-        //private void Ellipse_OnMouseLeave(object sender, MouseEventArgs e)
-        //{
-        //    Ellipse.Fill = Brushes.LightBlue;
-        //}
-
-        //private void Ellipse_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        //{
-        //    var rectangle = new Ellipse();
-
-        //    rectangle.Fill = Brushes.LightBlue;
-        //    rectangle.Width = 100;
-        //    rectangle.Height = 100;
-
-        //    Canvas.SetLeft(rectangle, 200);
-        //    Canvas.SetTop(rectangle, 200);
-
-        //    PaintWindow.Children.Add(rectangle);
-        //}
 
         private void PaintWindow_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //var rectangle = new Ellipse
-            //{
-            //    Fill = Brushes.BlueViolet,
-            //    Width = 50,
-            //    Height = 50
-            //};
-
             Point point = new Point
             {
                 X = e.GetPosition(PaintWindow).X,
@@ -67,28 +35,100 @@ namespace FigurePainter_WPF
             };
 
 
-            Graph.Add(new Triangle(point));
+            string vertexType = AddVertexType.Text;
 
+            if (vertexType == "")
+            {
+                MessageBox.Show("Выберите тип вершины!");
+                return;
+            }
+
+
+            switch (vertexType)
+            {
+                case "Квадрат":
+                    Graph.Add(new Square(point));
+                    break;
+
+                case "Круг":
+                    Graph.Add(new Circle(point));
+                    break;
+
+                case "Треугольник":
+                    Graph.Add(new Triangle(point));
+                    break;
+            }
+
+            Shape drawingShape = Graph.GetLastVertex().GetDrawingObject();
+
+            Canvas.SetLeft(drawingShape, e.GetPosition(PaintWindow).X - 25);
+            Canvas.SetTop(drawingShape, e.GetPosition(PaintWindow).Y - 25);
+
+            PaintWindow.Children.Add(drawingShape);
+
+
+            //Добавление номеров вершин в список для выбора
+            FirstVertex.Items.Add(new TextBlock
+            {
+                Text = Graph.GetLastVertex().Id.ToString()
+            });
+
+            SecondVertex.Items.Add(new TextBlock
+            {
+                Text = Graph.GetLastVertex().Id.ToString()
+            });
+        }
+
+        private void AddEdgeButton_Click(object sender, RoutedEventArgs e)
+        {
             try
             {
-                Shape drawingShape = Graph.Vertices[0].GetDrawingObject();
+                int firstVertex = Int32.Parse(FirstVertex.Text);
+                int secondVertex = Int32.Parse(SecondVertex.Text);
 
+                string edgeType = this.AddEdgeType.Text;
 
-                Canvas.SetLeft(drawingShape, e.GetPosition(PaintWindow).X - 25);
-                Canvas.SetTop(drawingShape, e.GetPosition(PaintWindow).Y - 25);
+                if (edgeType == "")
+                {
+                    throw new ArgumentNullException("Выберите тип ребра.");
+                }
 
-                PaintWindow.Children.Add(drawingShape);
+                AddToGraph(edgeType, firstVertex, secondVertex);
+
+                Shape drawingEdge = Graph.Edges.Last().GetDrawingObject();
+
+                PaintWindow.Children.Add(drawingEdge);
             }
-            catch (IndexOutOfRangeException exception)
+            catch (ArgumentNullException exception)
             {
                 MessageBox.Show(exception.Message);
             }
-            
+            catch (FormatException exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
 
-        
+        private void AddToGraph(string edgeType, int firstVertex, int secondVertex)
+        {
+            switch (edgeType)
+            {
+                case "Прямая линия":
+                    Graph.Add(new BaseLine(Graph.Vertices[firstVertex].Point, Graph.Vertices[secondVertex].Point), Graph.Vertices[firstVertex], Graph.Vertices[secondVertex]);
+                    break;
 
+                case "Прерывистая":
+                    Graph.Add(new BrokenLine(Graph.Vertices[firstVertex].Point, Graph.Vertices[secondVertex].Point), Graph.Vertices[firstVertex], Graph.Vertices[secondVertex]);
+                    break;
 
-        
+                case "Волнистая":
+                    //Graph.Add(new WavyLine(Graph.Vertices[firstVertex].Point, Graph.Vertices[secondVertex].Point), Graph.Vertices[firstVertex], Graph.Vertices[secondVertex]);
+                    break;
+
+                case "Кривая":
+                    Graph.Add(new IntermittentLine(Graph.Vertices[firstVertex].Point, Graph.Vertices[secondVertex].Point), Graph.Vertices[firstVertex], Graph.Vertices[secondVertex]);
+                    break;
+            }
+        }
     }
 }

@@ -44,7 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitMatrix.cs" />
+    <Compile Include="Edges\BaseLine.cs" />
     <Compile Include="Edges\Edge.cs" />
+    <Compile Include="Edges\BrokenLine.cs" />
+    <Compile Include="Edges\IntermittentLine.cs" />
+    <Compile Include="Edges\WavyLine.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="GraphContent\Graph.cs" />
     <Compile Include="GraphContent\GraphManager.cs" />

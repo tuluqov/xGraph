@@ -1,12 +1,11 @@
-﻿using System;
-
-namespace xGraph.Edges
+﻿namespace xGraph.Edges
 {
     public enum EdgeType
     {
         BaseLine,
         WavyLine,
-        IntermittentLine
+        IntermittentLine,
+        BrokenLine
     }
 
     public abstract class Edge : Element

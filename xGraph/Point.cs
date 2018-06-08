@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace xGraph
+﻿namespace xGraph
 {
     public class Point
     {

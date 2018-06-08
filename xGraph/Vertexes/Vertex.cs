@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace xGraph.Vertexes
+﻿namespace xGraph.Vertexes
 {
     public enum VertexType
     {
@@ -11,7 +9,7 @@ namespace xGraph.Vertexes
 
     public abstract class Vertex : Element
     {
-        //public byte Id { get; set; }
+        public int Id { get; set; }
         public Point Point { get; set; }
 
         protected Vertex(Point point)
@@ -19,9 +17,9 @@ namespace xGraph.Vertexes
             Point = point;
         }
 
-        protected Vertex(byte id, Point point)
+        protected Vertex(int id, Point point)
         {
-            //Id = id;
+            Id = id;
             Point = point;
         }
 
