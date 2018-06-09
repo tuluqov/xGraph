@@ -26,6 +26,8 @@ namespace FigurePainter_WPF
         }
 
 
+        #region VertexRegion
+
         private void PaintWindow_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Point point = new Point
@@ -61,16 +63,30 @@ namespace FigurePainter_WPF
 
             Shape drawingShape = Graph.GetLastVertex().GetDrawingObject();
 
+            TextBlock idShowerVertex = new TextBlock
+            {
+                Text = Graph.Vertices.Last().Id.ToString(),
+                FontSize = 20
+            };
+
             Canvas.SetLeft(drawingShape, e.GetPosition(PaintWindow).X - 25);
             Canvas.SetTop(drawingShape, e.GetPosition(PaintWindow).Y - 25);
 
+            Canvas.SetLeft(idShowerVertex, e.GetPosition(PaintWindow).X - 5);
+            Canvas.SetTop(idShowerVertex, e.GetPosition(PaintWindow).Y - 10);
+
+            //приоритет слоев
+            Panel.SetZIndex(drawingShape, 2);
+            Panel.SetZIndex(idShowerVertex, 3);
+
             PaintWindow.Children.Add(drawingShape);
+            PaintWindow.Children.Add(idShowerVertex);
 
 
             //Добавление номеров вершин в список для выбора
             FirstVertex.Items.Add(new TextBlock
             {
-                Text = Graph.GetLastVertex().Id.ToString()
+                Text = Graph.GetLastVertex().Id.ToString(),
             });
 
             SecondVertex.Items.Add(new TextBlock
@@ -79,12 +95,18 @@ namespace FigurePainter_WPF
             });
         }
 
+
+        #endregion
+
+        #region EdgeReion
+
+
         private void AddEdgeButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                int firstVertex = Int32.Parse(FirstVertex.Text);
-                int secondVertex = Int32.Parse(SecondVertex.Text);
+                int firstVertex = Int32.Parse(FirstVertex.Text) - 1;
+                int secondVertex = Int32.Parse(SecondVertex.Text) - 1;
 
                 string edgeType = this.AddEdgeType.Text;
 
@@ -96,6 +118,9 @@ namespace FigurePainter_WPF
                 AddToGraph(edgeType, firstVertex, secondVertex);
 
                 Shape drawingEdge = Graph.Edges.Last().GetDrawingObject();
+
+                //приоритет слоев
+                Panel.SetZIndex(drawingEdge, 1);
 
                 PaintWindow.Children.Add(drawingEdge);
             }
@@ -129,6 +154,14 @@ namespace FigurePainter_WPF
                     Graph.Add(new IntermittentLine(Graph.Vertices[firstVertex].Point, Graph.Vertices[secondVertex].Point), Graph.Vertices[firstVertex], Graph.Vertices[secondVertex]);
                     break;
             }
+        }
+
+
+        #endregion
+
+        private void GetAdjencyMatrixButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(Graph.AdjacencyMatrix.ToString());
         }
     }
 }

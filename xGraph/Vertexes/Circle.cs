@@ -1,4 +1,5 @@
-﻿using System.Windows.Media;
+﻿using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Shapes;
 
 namespace xGraph.Vertexes
@@ -14,7 +15,7 @@ namespace xGraph.Vertexes
             {
                 Fill = Brushes.BlueViolet,
                 Width = 50,
-                Height = 50
+                Height = 50,
             };
         }
     }

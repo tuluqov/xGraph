@@ -28,7 +28,7 @@ namespace xGraph.GraphContent
             
             AdjacencyMatrix = new BitMatrix();
 
-            IdVertexesCounter = 0;
+            IdVertexesCounter = 1;
         }
 
         public Graph(List<Vertex> vertices, List<Edge> edges)
@@ -38,7 +38,7 @@ namespace xGraph.GraphContent
 
             AdjacencyMatrix = new BitMatrix();
 
-            IdVertexesCounter = 0;
+            IdVertexesCounter = 1;
         }   
 
         public Graph(List<Element> elements)
@@ -47,21 +47,11 @@ namespace xGraph.GraphContent
 
             AdjacencyMatrix = new BitMatrix();
 
-            IdVertexesCounter = 0;
+            IdVertexesCounter = 1;
         }
 
 
         //methods
-        //public void Add(Element element)
-        //{
-        //    //Elements?.Add(element);
-
-        //    if (element != null)
-        //    {
-        //        Elements.Add(element);
-        //    }
-        //}
-
         public void Add(Vertex element)
         {
             Vertices?.Add(element);
@@ -77,10 +67,7 @@ namespace xGraph.GraphContent
             Edges?.Add(edge);
 
             //добавить изменние в матрице инциндетности
-            //edge.Point1 = vertex1.Point;
-            //edge.Point2 = vertex2.Point;
-
-            AdjacencyMatrix.AddEdge(vertex1.Id, vertex2.Id);
+            AdjacencyMatrix.AddEdge(vertex1.Id - 1, vertex2.Id - 1);
         }
 
         public Vertex GetLastVertex()

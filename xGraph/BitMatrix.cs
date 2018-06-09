@@ -6,40 +6,40 @@ namespace xGraph
 {
     public class BitMatrix
     {
-        private List<BitArray> data;
-        private int Dim;
+        public List<BitArray> Data { get; private set; }
+        public int Size { get; private set; }
 
         public BitMatrix()
         {
-            data = new List<BitArray>();
+            Data = new List<BitArray>();
             
-            Dim = 0;
+            Size = 0;
         }
 
         public bool GetValue(int row, int colmn)
         {
-            return data[row][colmn];
+            return Data[row][colmn];
         }
 
         public void SetValue(int row, int colmn, bool value)
         {
-            data[row][colmn] = value;
+            Data[row][colmn] = value;
         }
 
         public int GetNumVertex()
         {
-            return data.Count;
+            return Data.Count;
         }
 
         public override string ToString()
         {
             string s = "";
 
-            for (int i = 0; i < data.Count; i++)
+            for (int i = 0; i < Data.Count; i++)
             {
-                for (int j = 0; j < data[i].Length; j++)
+                for (int j = 0; j < Data[i].Length; j++)
                 {
-                    if (data[i][j] == true)
+                    if (Data[i][j] == true)
                     {
                         s += "1 ";
                     }
@@ -58,22 +58,23 @@ namespace xGraph
         //добавление вершины в матрицу
         public void AddVertex()
         {
-            Dim++;
-
-            data.Add(new BitArray(Dim));
+            Data.Add(new BitArray(Size));
             
-            for (int i = 0; i < data.Count; i++)
+            for (int i = 0; i < Data.Count; i++)
             {
-                data[i].Length++;
+                Data[i].Length++;
             }
+
+            Size++;
         }
 
-        //добавление ребра (связи между двуямя вершинами)
+        //добавление ребра (связи между двуямя вершинами), неориентированный граф
         public void AddEdge(int idVertex1, int idVerxet2)
         {
-            if (idVertex1 > -1 && idVertex1 <= Dim && idVerxet2 > -1 && idVerxet2 <= Dim)
+            if (idVertex1 > -1 && idVertex1 <= Size && idVerxet2 > -1 && idVerxet2 <= Size)
             {
-                data[idVertex1][idVerxet2] = true;
+                Data[idVertex1][idVerxet2] = true;
+                Data[idVerxet2][idVertex1] = true;
             }
             else
             {

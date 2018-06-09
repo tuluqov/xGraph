@@ -65,8 +65,8 @@
                 <Button Grid.Row="3"
                         Margin="10"
                         FontSize="13"
-                        x:Name="AddVertexButton"
-                    >Добавить вершину</Button>
+                        x:Name="GetAdjencyMatrix" Click="GetAdjencyMatrixButton_Click"
+                    >Матрица смежности</Button>
             </Grid>
 
             <Grid Row="1">

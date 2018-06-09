@@ -51,7 +51,6 @@
     <Compile Include="Edges\WavyLine.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="GraphContent\Graph.cs" />
-    <Compile Include="GraphContent\GraphManager.cs" />
     <Compile Include="IElement.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
